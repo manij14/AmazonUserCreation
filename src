@@ -1,8 +1,16 @@
-describe('D&D',()=>{
-    it('Validate Drag and Drop',()=>{
-        cy.visit('https://demo.automationtesting.in/Static.html');
-        cy.get('img[id="angular"]').drag('[id="droparea"]').then((success)=>{
-            assert.isTrue(success)  
+describe('Amazon Website',()=>{
+    it('Validate login & search',()=>{
+        cy.visit('https://www.amazon.in/')
+        cy.get('input#twotabsearchtextbox').type('mobile');
+        cy.get('#nav-search-submit-button').click();
+        cy.get('#brandsRefinements li a[aria-label*="Samsung"]').click({force: true});
+        cy.get('div[role="listitem"] h2[aria-label]').each(($results)=>{
+            let productNames=$results.text();
+            cy.log(productNames)
+            // cy.wrap($li)
+                // .invoke('text')
+                // .then((text) => {
+                    // cy.log(Result ${index + 1}: ${text});
+        })
         })
     })
-})
