@@ -1,0 +1,8 @@
+describe('D&D',()=>{
+    it('Validate Drag and Drop',()=>{
+        cy.visit('https://demo.automationtesting.in/Static.html');
+        cy.get('img[id="angular"]').drag('[id="droparea"]').then((success)=>{
+            assert.isTrue(success)  
+        })
+    })
+})
